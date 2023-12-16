@@ -10,14 +10,14 @@ public class  RotateBase : RotateAxis
     [SerializeField]
     private Vector2 current;
 
-    void void Awake()
+    void Awake()
     {
         ApplyRotation();
     }
 
     void ApplyRotation()
     {
-        axis.rotation = Quaternion.Euler(current.x, current.y, 0);    
+        axis.rotation = Quaternion.Euler(current.y, current.x, 0);    
     }   
             
     public override void Rotate(Vector2 vector)

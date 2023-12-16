@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class ReducerAxis : 
+public class ReducerAxis : RotateBase
 {
     [SerializeField]
     private RotateBase origin;
