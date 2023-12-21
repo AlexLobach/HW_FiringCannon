@@ -22,7 +22,7 @@ public class CannonballShots : MonoBehaviour
             cannonball.transform.rotation = cannon.transform.rotation;
             cannonball.transform.Translate(0,0.75f,1f);
             cannonball.GetComponent<Rigidbody>().AddRelativeForce(cannonball.transform.forward * force, ForceMode.Force);
-            Destroy(cannonball, 5f);
+            //Destroy(cannonball, 5f);
         }
         
     }    
