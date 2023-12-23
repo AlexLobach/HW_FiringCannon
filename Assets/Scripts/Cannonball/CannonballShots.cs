@@ -13,7 +13,7 @@ public class CannonballShots : MonoBehaviour
 
     public void Shoot()
     {
-        int force = Random.Range(1200, 2000);
+        int force = Random.Range(1600, 2500);
         BallBase currentBall = GetLooseBall();
         
         if (currentBall == null)
@@ -49,8 +49,7 @@ public class CannonballShots : MonoBehaviour
             {
                 TransformPosition(item, cannon);                
                 return item;
-            }
-            
+            }            
         }
         return null;
     }
