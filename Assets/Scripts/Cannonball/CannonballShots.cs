@@ -6,24 +6,53 @@ using UnityEngine;
 
 public class CannonballShots : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField] private GameObject cannonballPrefab;
+    [SerializeField] private BallBase cannonballPrefab;
     [SerializeField] private GameObject cannon;
-    
+    private List<BallBase> ballsPool = new List<BallBase>();
 
-       
-    void Update()
+
+    public void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            float force = Random.Range(1200, 2000);
-            GameObject cannonball = Instantiate(cannonballPrefab);
-            cannonball.transform.position = cannon.transform.position;
-            cannonball.transform.rotation = cannon.transform.rotation;
-            cannonball.transform.Translate(0,0.75f,1f);
-            cannonball.GetComponent<Rigidbody>().AddRelativeForce(cannonball.transform.forward * force, ForceMode.Force);
-            //Destroy(cannonball, 5f);
-        }
+        int force = Random.Range(1200, 2000);
+        BallBase currentBall = GetLooseBall();
         
-    }    
-}
+        if (currentBall == null)
+        {
+            currentBall = CreateNewObject();
+        }
+        currentBall.gameObject.SetActive(true);        
+        currentBall.RigitbodyBall.AddForce(currentBall.transform.forward * force, ForceMode.Force);
+    }
+
+    private void TransformPosition( BallBase go, GameObject cannonPosition)
+    {
+        go.transform.position = cannonPosition.transform.position;
+        go.transform.rotation = cannonPosition.transform.rotation;
+        go.transform.Translate(0, 0.75f, 1f);
+        go.RigitbodyBall.velocity = Vector3.zero;
+    }
+    
+    private BallBase CreateNewObject()
+    {
+        var go = Instantiate(cannonballPrefab);
+        TransformPosition(go, cannon);        
+        ballsPool.Add(go);
+        
+        return go;
+    }
+
+    private BallBase GetLooseBall()
+    {
+        foreach(var item in ballsPool) 
+        {
+            if (item.isActiveAndEnabled != true)
+            {
+                TransformPosition(item, cannon);                
+                return item;
+            }
+            
+        }
+        return null;
+    }
+}    
+

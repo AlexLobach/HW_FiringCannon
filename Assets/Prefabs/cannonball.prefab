@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 855558659018402347}
   - component: {fileID: 855558659021283499}
   - component: {fileID: 855558659020650611}
-  - component: {fileID: -6848848387281026921}
   - component: {fileID: 369437133246953558}
+  - component: {fileID: 6216774831154260573}
   - component: {fileID: 1128961608184248033}
   m_Layer: 0
   m_Name: cannonball
@@ -87,18 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-6848848387281026921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855558659018181301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fc486929d28f114394d5d8ac64dfdf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &369437133246953558
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -115,6 +103,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6216774831154260573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855558659018181301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51522973337718e4f809657af16afe1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RigitbodyBall: {fileID: 369437133246953558}
 --- !u!64 &1128961608184248033
 MeshCollider:
   m_ObjectHideFlags: 0
