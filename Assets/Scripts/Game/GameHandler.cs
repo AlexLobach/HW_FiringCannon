@@ -9,8 +9,14 @@ public class GameHandler : MonoBehaviour
     public ReducerAxis RotationModule;
     public CannonballShots ShootModule;
     public UIHandler UIModule;
+    public static GameHandler GameInstance;
 
 
+
+    public void Awake()
+    {
+        GameInstance = this; 
+    } 
 
     public void Update()
     {

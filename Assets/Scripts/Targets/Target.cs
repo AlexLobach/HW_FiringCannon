@@ -13,6 +13,7 @@ public class Target : MonoBehaviour
 
         Debug.Log($"{damage} was taken");
         currentHP -= damage;
+        
 
         if (currentHP <= 0)
         {
@@ -23,5 +24,6 @@ public class Target : MonoBehaviour
     private void  DeatchTarget() 
     {
         gameObject.SetActive(false);
+        GameHandler.GameInstance.UIModule.SetScore(20);
     }
 }
